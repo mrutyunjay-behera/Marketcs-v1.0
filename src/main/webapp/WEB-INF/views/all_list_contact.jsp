@@ -1,0 +1,39 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ include file="menu.jsp" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<table>
+		<thead>
+			<tr>
+				<th>First Name</th>
+				<th>Last Name </th>
+				<th>Email</th>
+				<th>Mobile</th>
+				<th>Lead Source</th>
+				<th>Gender</th>
+				<th>Billing</th>
+			</tr>
+		</thead>
+		<tbody>
+			<c:forEach items="${contacts}" var="contact">
+			<tr>
+				<td><a href="getContactById?id=${contact.id}">${contact.firstName}</a></td>
+				<td>${contact.lastName}</td>
+				<td>${contact.email}</td>
+				<td>${contact.mobile}</td>
+				<td>${contact.leadSource}</td>
+				<td>${contact.gender}</td>
+				<td><a href="bill?id=${contact.id}">Billing</a></td>
+			</tr>
+			</c:forEach>
+		</tbody>
+	</table>
+</body>
+</html>
